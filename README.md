@@ -44,4 +44,10 @@ cd repos/cloud-platform-blueprint && make kind-up
 
 ## Conventions
 
-MIT license, Conventional Commits, CODEOWNERS, no secrets in Git, AWS via OIDC only. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+Conventional Commits, CODEOWNERS, no secrets in Git, AWS via OIDC only. See [CONTRIBUTING.md](CONTRIBUTING.md) and [SECURITY.md](SECURITY.md).
+
+## License
+
+The source code for this project is licensed under the MIT License. Personal content, including my resume, photographs, written content, branding, and other identifying materials, is not covered by this license and may not be reused without permission.
+
+See [LICENSE](LICENSE).

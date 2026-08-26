@@ -9,10 +9,19 @@ REPOS = ROOT / "repos"
 LICENSE = (ROOT / "LICENSE").read_text()
 SECURITY = (ROOT / "SECURITY.md").read_text()
 CODEOWNERS = "* @EtienneFokou-E18560\n"
+LICENSE_NOTICE = """
+## License
+
+The source code for this project is licensed under the MIT License. Personal content, including my resume, photographs, written content, branding, and other identifying materials, is not covered by this license and may not be reused without permission.
+
+See [LICENSE](LICENSE).
+"""
 
 
 def write(path: Path, content: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
+    if path.name == "README.md" and "is not covered by this license" not in content:
+        content = content.rstrip() + "\n" + LICENSE_NOTICE
     path.write_text(content if content.endswith("\n") else content + "\n")
 
 
