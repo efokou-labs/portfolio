@@ -1,48 +1,55 @@
 # efokou-labs
 
-I build **shared platforms** that teams can run, observe, and tear down: Kubernetes, GitOps, and AWS with separately reviewable repositories—not sixteen disconnected cloud accounts.
+Etienne Fokou. Cloud, SRE, GitOps, backend.
+
+Repos share one platform. Default cluster is kind. AWS is for demos, then destroyed. GitOps is Argo CD.
 
 ## What I build
 
-- A local-first kind cluster as the default runtime
-- Terraform on AWS for interview-cloud demos (apply, walk through, destroy)
-- Argo CD as the promotion path from Git to the cluster
-- Workloads that prove full-stack SaaS, async jobs, SRE operations, and gated AI services
+- kind cluster: ingress, metrics, Argo CD
+- Terraform: VPC, EKS, ECR, RDS, Secrets Manager, budget alarm
+- GitOps overlays for the workloads in this org
+- Next.js + FastAPI app, job queue + workers, SRE failure drills, AI service with eval gates
 
 ## Problems I solve
 
-- **Leftover infrastructure** — no idle EKS, RDS, or NAT; sandbox AWS is ephemeral
-- **Config drift** — desired state lives in Git; GitOps reconciles the cluster
-- **Operations without folklore** — injected failure modes, alerts, and runbooks
-- **Jobs that fail honestly** — retries, idempotency, dead-letter queues, traces
-- **AI that cannot skip the gate** — evaluation thresholds and cost controls before a model call
+- EKS, RDS, or NAT left running after a demo
+- Cluster config that does not match Git
+- Incidents with no runbook
+- Duplicate jobs and silent worker failures
+- LLM calls with no eval gate or token cap
 
 ## Technical capabilities
 
-Kubernetes, GitOps (Argo CD), Terraform, AWS (OIDC), GitHub Actions, Python / FastAPI, observability (metrics, logs, traces), SRE runbooks, and system design.
+Kubernetes, Argo CD, Terraform, AWS (OIDC), GitHub Actions, Python, FastAPI, Prometheus / Grafana / Loki, system design.
 
 ## Evidence
 
-| Repository | What it proves |
+| Repo | Contents |
 | --- | --- |
-| [cloud-platform-blueprint](https://github.com/efokou-labs/cloud-platform-blueprint) | Platform bootstrap (kind + Terraform) |
-| [terraform-modules](https://github.com/efokou-labs/terraform-modules) | Reusable AWS modules with create-and-destroy tests |
+| [cloud-platform-blueprint](https://github.com/efokou-labs/cloud-platform-blueprint) | kind bootstrap and Terraform env roots |
+| [terraform-modules](https://github.com/efokou-labs/terraform-modules) | AWS modules; `terraform test`; destroy in CI |
 | [kubernetes-gitops](https://github.com/efokou-labs/kubernetes-gitops) | Argo CD desired state |
-| [kubernetes-operations-toolkit](https://github.com/efokou-labs/kubernetes-operations-toolkit) | SRE failure modes and runbooks |
-| [career-workspace](https://github.com/efokou-labs/career-workspace) | Full-stack SaaS on the shared platform |
-| [distributed-job-processor](https://github.com/efokou-labs/distributed-job-processor) | Async jobs, retries, tracing |
-| [agentic-ai-platform](https://github.com/efokou-labs/agentic-ai-platform) | AI service with eval gates and cost controls |
-| [system-design-notes](https://github.com/efokou-labs/system-design-notes) | Architecture write-ups |
+| [kubernetes-operations-toolkit](https://github.com/efokou-labs/kubernetes-operations-toolkit) | Failure modes and runbooks |
+| [career-workspace](https://github.com/efokou-labs/career-workspace) | Next.js, FastAPI, Postgres, Redis |
+| [distributed-job-processor](https://github.com/efokou-labs/distributed-job-processor) | API, queue, retries, DLQ, traces |
+| [agentic-ai-platform](https://github.com/efokou-labs/agentic-ai-platform) | FastAPI agent, eval gates, cost controls |
+| [system-design-notes](https://github.com/efokou-labs/system-design-notes) | MkDocs notes |
 | [observability-lab](https://github.com/efokou-labs/observability-lab) | Metrics, logs, traces |
-| [aws-cdk-examples](https://github.com/efokou-labs/aws-cdk-examples) | CDK patterns with teardown |
+| [aws-cdk-examples](https://github.com/efokou-labs/aws-cdk-examples) | CDK patterns and teardown workflow |
 
-Meta repo and tracker: [portfolio](https://github.com/efokou-labs/portfolio).
+Index: [portfolio](https://github.com/efokou-labs/portfolio).
 
-Bring-up (Docker, kind, Helm, kubectl): clone the meta repo, then `cd repos/cloud-platform-blueprint && make kind-up`.
+```bash
+git clone https://github.com/efokou-labs/portfolio.git
+cd portfolio/repos/cloud-platform-blueprint && make kind-up
+```
+
+Needs Docker, kind, Helm, kubectl.
 
 ## Experience
 
-This org is the work sample. Each repository is meant to survive a clone, a `make verify`, and a walkthrough of trade-offs: kind vs AWS, GitOps vs `kubectl apply`, destroy vs always-on.
+This GitHub org is the sample. Clone a repo and run `make verify`.
 
 ## Contact
 
