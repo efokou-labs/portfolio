@@ -1,0 +1,22 @@
+{
+  "folders": [
+    { "name": "portfolio-meta", "path": "." },
+    { "path": "repos/cloud-platform-blueprint" },
+    { "path": "repos/terraform-modules" },
+    { "path": "repos/kubernetes-gitops" },
+    { "path": "repos/kubernetes-operations-toolkit" },
+    { "path": "repos/distributed-job-processor" },
+    { "path": "repos/career-workspace" },
+    { "path": "repos/agentic-ai-platform" },
+    { "path": "repos/system-design-notes" },
+    { "path": "repos/observability-lab" },
+    { "path": "repos/aws-cdk-examples" }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/.terraform": true,
+      "**/node_modules": true,
+      "**/.venv": true
+    }
+  }
+}
