@@ -59,7 +59,7 @@ def ops_toolkit() -> None:
 
 Intentionally observable Kubernetes environment for **operational exercises**, not a conventional app.
 
-Install on the shared kind cluster from [cloud-platform-blueprint](https://github.com/EtienneFokou-E18560/cloud-platform-blueprint).
+Install on the shared kind cluster from [cloud-platform-blueprint](https://github.com/efokou-labs/cloud-platform-blueprint).
 
 ## Failure modes
 
@@ -167,7 +167,7 @@ def test_readyz():
         repo / "charts/ops-demo/values.yaml",
         """\
 image:
-  repository: ghcr.io/etiennefokou-e18560/kubernetes-operations-toolkit
+  repository: ghcr.io/efokou-labs/kubernetes-operations-toolkit
   tag: dev
 failureMode: none
 replicaCount: 1
@@ -357,7 +357,7 @@ docker compose up --build
 
 Worker-failure recovery is documented in [docs/worker-failure.md](docs/worker-failure.md).
 
-This workload is deployed onto kind via [kubernetes-gitops](https://github.com/EtienneFokou-E18560/kubernetes-gitops).
+This workload is deployed onto kind via [kubernetes-gitops](https://github.com/efokou-labs/kubernetes-gitops).
 """,
     )
     write(

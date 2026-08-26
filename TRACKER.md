@@ -1,6 +1,6 @@
 # Portfolio tracker
 
-Status of the GitHub portfolio platform. Repositories live under `repos/` locally and on GitHub under [EtienneFokou-E18560](https://github.com/EtienneFokou-E18560) until they are transferred to org `efokou-labs` ([ORG_SETUP.md](ORG_SETUP.md)).
+Status of the GitHub portfolio platform. Repositories live under `repos/` locally and on GitHub under org [efokou-labs](https://github.com/efokou-labs).
 
 ## Active (this implementation)
 

@@ -11,11 +11,11 @@ Senior-engineering portfolio for cloud, SRE, distributed systems, GitOps, and ba
 ## How to read this org
 
 1. This meta repo — narrative and [ARCHITECTURE.md](ARCHITECTURE.md)
-2. [cloud-platform-blueprint](https://github.com/EtienneFokou-E18560/cloud-platform-blueprint) — provision and bootstrap
-3. [kubernetes-gitops](https://github.com/EtienneFokou-E18560/kubernetes-gitops) — desired state
-4. A workload such as [career-workspace](https://github.com/EtienneFokou-E18560/career-workspace) or [distributed-job-processor](https://github.com/EtienneFokou-E18560/distributed-job-processor)
+2. [cloud-platform-blueprint](https://github.com/efokou-labs/cloud-platform-blueprint) — provision and bootstrap
+3. [kubernetes-gitops](https://github.com/efokou-labs/kubernetes-gitops) — desired state
+4. A workload such as [career-workspace](https://github.com/efokou-labs/career-workspace) or [distributed-job-processor](https://github.com/efokou-labs/distributed-job-processor)
 
-Full index and deferred repos: [TRACKER.md](TRACKER.md). Org transfer: [ORG_SETUP.md](ORG_SETUP.md).
+Full index and deferred repos: [TRACKER.md](TRACKER.md). Org: [efokou-labs](https://github.com/efokou-labs).
 
 ## Local layout
 

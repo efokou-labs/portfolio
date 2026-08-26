@@ -69,7 +69,7 @@ def terraform_modules() -> None:
         repo / "README.md",
         """# terraform-modules
 
-Versioned AWS modules consumed by [cloud-platform-blueprint](https://github.com/EtienneFokou-E18560/cloud-platform-blueprint).
+Versioned AWS modules consumed by [cloud-platform-blueprint](https://github.com/efokou-labs/cloud-platform-blueprint).
 
 Infrastructure **create and destroy** is the integration test. There is no permanent demo VPC.
 
@@ -86,7 +86,7 @@ Pin from consumers:
 
 ```hcl
 module "vpc" {
-  source = "git::https://github.com/EtienneFokou-E18560/terraform-modules.git//modules/vpc?ref=v0.1.0"
+  source = "git::https://github.com/efokou-labs/terraform-modules.git//modules/vpc?ref=v0.1.0"
   name   = "portfolio-dev"
 }
 ```
@@ -313,7 +313,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: https://github.com/EtienneFokou-E18560/kubernetes-gitops.git
+    repoURL: https://github.com/efokou-labs/kubernetes-gitops.git
     targetRevision: main
     path: apps/root
   destination:
@@ -381,10 +381,10 @@ jobs:
     )
 
     apps = {
-        "career-workspace": ("career-workspace", "8080", "ghcr.io/etiennefokou-e18560/career-workspace:dev"),
-        "distributed-job-processor": ("job-processor", "8080", "ghcr.io/etiennefokou-e18560/distributed-job-processor:dev"),
-        "agentic-ai-platform": ("agentic-ai", "8080", "ghcr.io/etiennefokou-e18560/agentic-ai-platform:dev"),
-        "observability-lab": ("obs-lab", "8080", "ghcr.io/etiennefokou-e18560/observability-lab:dev"),
+        "career-workspace": ("career-workspace", "8080", "ghcr.io/efokou-labs/career-workspace:dev"),
+        "distributed-job-processor": ("job-processor", "8080", "ghcr.io/efokou-labs/distributed-job-processor:dev"),
+        "agentic-ai-platform": ("agentic-ai", "8080", "ghcr.io/efokou-labs/agentic-ai-platform:dev"),
+        "observability-lab": ("obs-lab", "8080", "ghcr.io/efokou-labs/observability-lab:dev"),
     }
     for app, (name, port, image) in apps.items():
         write(
