@@ -108,7 +108,7 @@ Git tags: `v0.1.0`, `v1.0.0`. Breaking changes bump the major version.
         repo / "Makefile",
         """\
 .PHONY: verify
-TERRAFORM_IMAGE ?= hashicorp/terraform:1.9.8
+TERRAFORM_IMAGE ?= hashicorp/terraform:1.15.9
 TF := docker run --rm -v "$(CURDIR):/src" -w /src $(TERRAFORM_IMAGE)
 
 verify:
@@ -183,10 +183,10 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: hashicorp/setup-terraform@v3
+      - uses: actions/checkout@v5
+      - uses: hashicorp/setup-terraform@v4
         with:
-          terraform_version: 1.9.8
+          terraform_version: 1.15.9
       - name: validate modules
         run: |
           for d in modules/*; do
@@ -202,10 +202,10 @@ jobs:
     runs-on: ubuntu-latest
     environment: aws-sandbox
     steps:
-      - uses: actions/checkout@v4
-      - uses: hashicorp/setup-terraform@v3
+      - uses: actions/checkout@v5
+      - uses: hashicorp/setup-terraform@v4
         with:
-          terraform_version: 1.9.8
+          terraform_version: 1.15.9
       - name: apply
         working-directory: examples/ephemeral
         run: terraform init && terraform apply -auto-approve
@@ -293,10 +293,10 @@ kubectl apply -f bootstrap/root-application.yaml
 .PHONY: verify
 verify:
 	@command -v kubectl >/dev/null || { echo "kubectl missing (kustomize build still checked via docker)"; }
-	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.4.3 build apps/root >/tmp/root.yaml
-	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.4.3 build apps/career-workspace/overlays/dev >/dev/null
-	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.4.3 build apps/distributed-job-processor/overlays/dev >/dev/null
-	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.4.3 build apps/agentic-ai-platform/overlays/dev >/dev/null
+	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.8.1 build apps/root >/tmp/root.yaml
+	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.8.1 build apps/career-workspace/overlays/dev >/dev/null
+	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.8.1 build apps/distributed-job-processor/overlays/dev >/dev/null
+	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.8.1 build apps/agentic-ai-platform/overlays/dev >/dev/null
 	@echo kubernetes-gitops verify passed
 """,
     )
@@ -364,7 +364,7 @@ jobs:
   kustomize:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: yokawasa/action-setup-kube-tools@v0.11.1
         with:
           setup-tools: |

@@ -102,8 +102,8 @@ verify:
 	@echo kubernetes-operations-toolkit verify passed
 """,
     )
-    write(repo / "requirements-dev.txt", "pytest==8.3.4\nfastapi==0.115.6\nhttpx==0.28.1\nuvicorn==0.34.0\n")
-    write(repo / "requirements.txt", "fastapi==0.115.6\nuvicorn==0.34.0\n")
+    write(repo / "requirements-dev.txt", "pytest==9.1.1\nfastapi==0.141.1\nhttpx==0.28.1\nuvicorn==0.52.4\n")
+    write(repo / "requirements.txt", "fastapi==0.141.1\nuvicorn==0.52.4\n")
     write(
         repo / "app/main.py",
         '''\
@@ -288,14 +288,14 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - run: pip install -r requirements-dev.txt && pytest -q
-      - uses: azure/setup-helm@v4
+      - uses: azure/setup-helm@v5
       - run: helm lint charts/ops-demo
-      - uses: aquasecurity/trivy-action@0.28.0
+      - uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           scan-type: fs
           scan-ref: .
@@ -372,9 +372,9 @@ verify:
     )
     write(
         repo / "requirements.txt",
-        "fastapi==0.115.6\nuvicorn==0.34.0\nsqlalchemy==2.0.36\npsycopg2-binary==2.9.10\npydantic-settings==2.6.1\nopentelemetry-api==1.28.2\n",
+        "fastapi==0.141.1\nuvicorn==0.52.4\nsqlalchemy==2.0.52\npsycopg2-binary==2.9.12\npydantic-settings==2.15.0\nopentelemetry-api==1.44.0\n",
     )
-    write(repo / "requirements-dev.txt", "-r requirements.txt\npytest==8.3.4\nhttpx==0.28.1\n")
+    write(repo / "requirements-dev.txt", "-r requirements.txt\npytest==9.1.1\nhttpx==0.28.1\n")
     write(
         repo / "app/__init__.py",
         "",
@@ -676,12 +676,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - run: pip install -r requirements-dev.txt && pytest -q
-      - uses: aquasecurity/trivy-action@0.28.0
+      - uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           scan-type: fs
           scan-ref: .
@@ -740,8 +740,8 @@ verify:
 	@echo career-workspace verify passed
 """,
     )
-    write(repo / "apps/api/requirements.txt", "fastapi==0.115.6\nuvicorn==0.34.0\n")
-    write(repo / "apps/api/requirements-dev.txt", "-r requirements.txt\npytest==8.3.4\nhttpx==0.28.1\n")
+    write(repo / "apps/api/requirements.txt", "fastapi==0.141.1\nuvicorn==0.52.4\n")
+    write(repo / "apps/api/requirements-dev.txt", "-r requirements.txt\npytest==9.1.1\nhttpx==0.28.1\n")
     write(
         repo / "apps/api/app/main.py",
         '''\
@@ -949,13 +949,13 @@ jobs:
   api:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - run: pip install -r apps/api/requirements-dev.txt
       - run: pytest -q apps/api
-      - uses: aquasecurity/trivy-action@0.28.0
+      - uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           scan-type: fs
           scan-ref: apps/api
@@ -1009,8 +1009,8 @@ verify:
 	@echo agentic-ai-platform verify passed
 """,
     )
-    write(repo / "requirements.txt", "fastapi==0.115.6\nuvicorn==0.34.0\n")
-    write(repo / "requirements-dev.txt", "-r requirements.txt\npytest==8.3.4\nhttpx==0.28.1\n")
+    write(repo / "requirements.txt", "fastapi==0.141.1\nuvicorn==0.52.4\n")
+    write(repo / "requirements-dev.txt", "-r requirements.txt\npytest==9.1.1\nhttpx==0.28.1\n")
     write(
         repo / "app/cost.py",
         '''\
@@ -1232,12 +1232,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - run: pip install -r requirements-dev.txt && pytest -q
-      - uses: aquasecurity/trivy-action@0.28.0
+      - uses: aquasecurity/trivy-action@ed142fd0673e97e23eac54620cfb913e5ce36c25 # v0.36.0
         with:
           scan-type: fs
           scan-ref: .
@@ -1276,7 +1276,7 @@ verify:
 	@echo system-design-notes verify passed
 """,
     )
-    write(repo / "requirements.txt", "mkdocs==1.6.1\nmkdocs-material==9.5.44\n")
+    write(repo / "requirements.txt", "mkdocs==1.6.1\nmkdocs-material==9.7.7\n")
     write(
         repo / "mkdocs.yml",
         """\
@@ -1366,12 +1366,12 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt && mkdocs build --strict
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         if: github.ref == 'refs/heads/main'
         with:
           path: site
@@ -1384,7 +1384,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 """,
     )
 
@@ -1434,8 +1434,8 @@ verify:
 	@echo observability-lab verify passed
 """,
     )
-    write(repo / "requirements.txt", "fastapi==0.115.6\nuvicorn==0.34.0\nprometheus-client==0.21.1\n")
-    write(repo / "requirements-dev.txt", "-r requirements.txt\npytest==8.3.4\nhttpx==0.28.1\n")
+    write(repo / "requirements.txt", "fastapi==0.141.1\nuvicorn==0.52.4\nprometheus-client==0.26.0\n")
+    write(repo / "requirements-dev.txt", "-r requirements.txt\npytest==9.1.1\nhttpx==0.28.1\n")
     write(
         repo / "app/main.py",
         '''\
@@ -1620,8 +1620,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: '3.12'
       - run: pip install -r requirements-dev.txt && pytest -q
@@ -1885,8 +1885,8 @@ jobs:
   synth:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: '22'
       - run: npm ci
@@ -1907,8 +1907,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: aws-sandbox
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v6
         with:
           node-version: '22'
       - uses: aws-actions/configure-aws-credentials@v4
