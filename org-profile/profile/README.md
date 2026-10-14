@@ -9,7 +9,7 @@ Repos share one platform. Default cluster is kind. AWS is for demos, then destro
 - kind cluster: ingress, metrics, Argo CD
 - Terraform: VPC, EKS, ECR, RDS, Secrets Manager, budget alarm
 - GitOps overlays for the workloads in this org
-- Next.js + FastAPI app, job queue + workers, SRE failure drills, AI service with eval gates
+- Askel (job search), job queue + workers, SRE failure drills, AI service with eval gates
 
 ## Problems I solve
 
@@ -31,7 +31,7 @@ Kubernetes, Argo CD, Terraform, AWS (OIDC), GitHub Actions, Python, FastAPI, Pro
 | [terraform-modules](https://github.com/efokou-labs/terraform-modules) | AWS modules; `terraform test`; destroy in CI |
 | [kubernetes-gitops](https://github.com/efokou-labs/kubernetes-gitops) | Argo CD desired state |
 | [kubernetes-operations-toolkit](https://github.com/efokou-labs/kubernetes-operations-toolkit) | Failure modes and runbooks |
-| [career-workspace](https://github.com/efokou-labs/career-workspace) | Next.js, FastAPI, Postgres, Redis |
+| [Askel](https://www.getaskel.com/) | Job-search product (live) |
 | [distributed-job-processor](https://github.com/efokou-labs/distributed-job-processor) | API, queue, retries, DLQ, traces |
 | [agentic-ai-platform](https://github.com/efokou-labs/agentic-ai-platform) | FastAPI agent, eval gates, cost controls |
 | [system-design-notes](https://github.com/efokou-labs/system-design-notes) | MkDocs notes |

@@ -6,7 +6,6 @@
     { "path": "repos/kubernetes-gitops" },
     { "path": "repos/kubernetes-operations-toolkit" },
     { "path": "repos/distributed-job-processor" },
-    { "path": "repos/career-workspace" },
     { "path": "repos/agentic-ai-platform" },
     { "path": "repos/system-design-notes" },
     { "path": "repos/observability-lab" },

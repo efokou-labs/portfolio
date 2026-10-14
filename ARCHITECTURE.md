@@ -42,7 +42,7 @@ flowchart TB
 - **kubernetes-gitops** — desired state. CI builds images; GitOps PRs change tags. No `kubectl apply` in prod.
 - **observability-lab** — Prometheus, Grafana, Loki, Tempo/OTel, RED and USE dashboards.
 - **kubernetes-operations-toolkit** — failure modes, alerts, runbooks.
-- **career-workspace** — Next.js + FastAPI SaaS workload.
+- **Askel** — live job-search product at [getaskel.com](https://www.getaskel.com/). Replaces the career-workspace sample in the public story.
 - **distributed-job-processor** — API, queue, workers, idempotency, DLQ.
 - **agentic-ai-platform** — FastAPI agent service with eval gates and cost controls.
 - **system-design-notes** / **awesome-sre** — MkDocs Material on GitHub Pages.

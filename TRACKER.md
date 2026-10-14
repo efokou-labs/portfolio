@@ -12,7 +12,7 @@ Status of the GitHub portfolio platform. Repositories live under `repos/` locall
 | kubernetes-gitops | 1 | Argo CD desired state | `repos/kubernetes-gitops` |
 | kubernetes-operations-toolkit | 1 | SRE failure modes + runbooks | `repos/kubernetes-operations-toolkit` |
 | distributed-job-processor | 1 | Async jobs, retries, tracing | `repos/distributed-job-processor` |
-| career-workspace | 1 | Full-stack SaaS workload | `repos/career-workspace` |
+| Askel | 1 | Live job-search product | [getaskel.com](https://www.getaskel.com/) |
 | agentic-ai-platform | 2 | AI service + eval gates | `repos/agentic-ai-platform` |
 | system-design-notes | 2 | Architecture knowledge base | `repos/system-design-notes` |
 | observability-lab | 3 | Metrics, logs, traces | `repos/observability-lab` |
@@ -24,7 +24,7 @@ Do **not** start these while kind bootstrap, GitOps, and at least one workload a
 
 | Repo | Why it waits | When to start |
 | --- | --- | --- |
-| microservices-demo | High build depth; duplicates job-processor + GitOps patterns | After career-workspace and job-processor run on kind |
+| microservices-demo | High build depth; duplicates job-processor + GitOps patterns | After Askel and job-processor are the public workloads |
 | homelab-infrastructure | Needs a real extra cluster and secret hygiene | After kubernetes-gitops is the promotion path |
 | linux-automation-scripts | Low hiring signal vs platform work | After P0 READMEs are interview-ready |
 | python-algorithms | Fundamentals archive, not a flagship | After P0; do not pin on the GitHub profile |
