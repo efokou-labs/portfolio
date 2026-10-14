@@ -303,7 +303,7 @@ kubectl apply -f bootstrap/root-application.yaml
 verify:
 	@command -v kubectl >/dev/null || { echo "kubectl missing (kustomize build still checked via docker)"; }
 	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.8.1 build apps/root >/tmp/root.yaml
-	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.8.1 build apps/career-workspace/overlays/dev >/dev/null
+	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.8.1 build apps/askel/overlays/dev >/dev/null
 	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.8.1 build apps/distributed-job-processor/overlays/dev >/dev/null
 	docker run --rm -v "$(CURDIR):/src" -w /src registry.k8s.io/kustomize/kustomize:v5.8.1 build apps/agentic-ai-platform/overlays/dev >/dev/null
 	@echo kubernetes-gitops verify passed
@@ -342,7 +342,7 @@ spec:
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - ../career-workspace/overlays/dev
+  - ../askel/overlays/dev
   - ../distributed-job-processor/overlays/dev
   - ../agentic-ai-platform/overlays/dev
   - ../observability-lab/overlays/dev
@@ -382,7 +382,7 @@ jobs:
       - name: build overlays
         run: |
           set -euo pipefail
-          for p in apps/career-workspace/overlays/* apps/distributed-job-processor/overlays/* apps/agentic-ai-platform/overlays/* apps/observability-lab/overlays/*; do
+          for p in apps/askel/overlays/* apps/distributed-job-processor/overlays/* apps/agentic-ai-platform/overlays/* apps/observability-lab/overlays/*; do
             echo "BUILD $p"
             kustomize build "$p" | kubeconform -strict -ignore-missing-schemas
           done
@@ -390,7 +390,7 @@ jobs:
     )
 
     apps = {
-        "career-workspace": ("career-workspace", "8080", "ghcr.io/efokou-labs/career-workspace:dev"),
+        "askel": ("askel", "8080", "ghcr.io/efokou-labs/askel:dev"),
         "distributed-job-processor": ("job-processor", "8080", "ghcr.io/efokou-labs/distributed-job-processor:dev"),
         "agentic-ai-platform": ("agentic-ai", "8080", "ghcr.io/efokou-labs/agentic-ai-platform:dev"),
         "observability-lab": ("obs-lab", "8080", "ghcr.io/efokou-labs/observability-lab:dev"),

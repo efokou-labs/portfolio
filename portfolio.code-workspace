@@ -1,5 +1,8 @@
 {
   "folders": [
+    { "name": "Askel", "path": "../askel" },
+    { "name": "askel-kind", "path": "repos/askel" },
+    { "name": "MyDevelopment", "path": ".." },
     { "name": "portfolio-meta", "path": "." },
     { "path": "repos/cloud-platform-blueprint" },
     { "path": "repos/terraform-modules" },

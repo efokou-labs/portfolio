@@ -12,7 +12,7 @@ Status of the GitHub portfolio platform. Repositories live under `repos/` locall
 | kubernetes-gitops | 1 | Argo CD desired state | `repos/kubernetes-gitops` |
 | kubernetes-operations-toolkit | 1 | SRE failure modes + runbooks | `repos/kubernetes-operations-toolkit` |
 | distributed-job-processor | 1 | Async jobs, retries, tracing | `repos/distributed-job-processor` |
-| Askel | 1 | Live job-search product | [getaskel.com](https://www.getaskel.com/) |
+| Askel | 1 | Job-search product + kind GitOps workload | [getaskel.com](https://www.getaskel.com/), `repos/askel` |
 | agentic-ai-platform | 2 | AI service + eval gates | `repos/agentic-ai-platform` |
 | system-design-notes | 2 | Architecture knowledge base | `repos/system-design-notes` |
 | observability-lab | 3 | Metrics, logs, traces | `repos/observability-lab` |

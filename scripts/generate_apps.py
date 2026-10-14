@@ -701,15 +701,15 @@ jobs:
     write(repo / ".env.example", "DATABASE_URL=postgresql://app:app@localhost:5432/jobs\n")
 
 
-def career_workspace() -> None:
-    repo = REPOS / "career-workspace"
+def askel() -> None:
+    repo = REPOS / "askel"
     common(repo)
     write(repo / ".gitignore", PY_GITIGNORE + NODE_GITIGNORE)
     write(
         repo / "README.md",
-        """# career-workspace
+        """# Askel
 
-Production-style SaaS workload: Next.js UI, FastAPI API + worker, PostgreSQL, Redis, S3-compatible object storage.
+Kind GitOps workload for [Askel](https://www.getaskel.com/) — Next.js UI, FastAPI API + worker, PostgreSQL, Redis, S3-compatible object storage.
 
 It runs on the **shared platform** (kind + GitOps). It does not create its own AWS account.
 
@@ -746,7 +746,7 @@ Secrets never live in Git. Use `.env.example` locally and External Secrets / SOP
 verify:
 	python3 -m pip install -q -r apps/api/requirements-dev.txt
 	python3 -m pytest -q apps/api
-	@echo career-workspace verify passed
+	@echo askel verify passed
 """,
     )
     write(repo / "apps/api/requirements.txt", "fastapi==0.141.1\nuvicorn==0.52.4\n")
@@ -757,7 +757,7 @@ verify:
 from fastapi import FastAPI
 from pydantic import BaseModel
 
-app = FastAPI(title="career-workspace")
+app = FastAPI(title="askel")
 
 
 class Application(BaseModel):
@@ -829,7 +829,7 @@ def test_create_application():
         repo / "apps/web/package.json",
         """\
 {
-  "name": "career-workspace-web",
+  "name": "askel-web",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -850,8 +850,8 @@ def test_create_application():
 export default function Page() {
   return (
     <main>
-      <h1>Career workspace</h1>
-      <p>Track applications. API lives at /api on the FastAPI service.</p>
+      <h1>Askel</h1>
+      <p>Your job search, one step at a time.</p>
     </main>
   );
 }
@@ -860,7 +860,7 @@ export default function Page() {
     write(
         repo / "apps/web/app/layout.tsx",
         """\
-export const metadata = { title: "Career workspace" };
+export const metadata = { title: "Askel" };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
@@ -889,7 +889,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      DATABASE_URL: postgresql://app:app@postgres:5432/career
+      DATABASE_URL: postgresql://app:app@postgres:5432/askel
       REDIS_URL: redis://redis:6379/0
       S3_ENDPOINT: http://minio:9000
     depends_on:
@@ -901,7 +901,7 @@ services:
       context: ./apps/api
     command: python -m app.worker
     environment:
-      DATABASE_URL: postgresql://app:app@postgres:5432/career
+      DATABASE_URL: postgresql://app:app@postgres:5432/askel
       REDIS_URL: redis://redis:6379/0
     depends_on:
       - postgres
@@ -919,7 +919,7 @@ services:
     environment:
       POSTGRES_USER: app
       POSTGRES_PASSWORD: app
-      POSTGRES_DB: career
+      POSTGRES_DB: askel
   redis:
     image: redis:7-alpine
   minio:
@@ -945,7 +945,7 @@ EXPOSE 8080
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "8080"]
 """,
     )
-    write(repo / ".env.example", "DATABASE_URL=postgresql://app:app@localhost:5432/career\nREDIS_URL=redis://localhost:6379/0\nS3_ENDPOINT=http://localhost:9000\n")
+    write(repo / ".env.example", "DATABASE_URL=postgresql://app:app@localhost:5432/askel\nREDIS_URL=redis://localhost:6379/0\nS3_ENDPOINT=http://localhost:9000\n")
     write(
         repo / ".github/workflows/ci.yml",
         """\
@@ -1953,7 +1953,7 @@ See [TRACKER.md](../TRACKER.md).
 if __name__ == "__main__":
     ops_toolkit()
     job_processor()
-    career_workspace()
+    askel()
     agentic()
     design_notes()
     obs_lab()

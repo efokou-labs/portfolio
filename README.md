@@ -13,7 +13,7 @@ Senior-engineering portfolio for cloud, SRE, distributed systems, GitOps, and ba
 1. This meta repo — narrative and [ARCHITECTURE.md](ARCHITECTURE.md)
 2. [cloud-platform-blueprint](https://github.com/efokou-labs/cloud-platform-blueprint) — provision and bootstrap
 3. [kubernetes-gitops](https://github.com/efokou-labs/kubernetes-gitops) — desired state
-4. A workload such as [Askel](https://www.getaskel.com/) or [distributed-job-processor](https://github.com/efokou-labs/distributed-job-processor)
+4. A workload such as [Askel](https://github.com/efokou-labs/askel) ([live](https://www.getaskel.com/)) or [distributed-job-processor](https://github.com/efokou-labs/distributed-job-processor)
 
 Full index and deferred repos: [TRACKER.md](TRACKER.md). Org: [efokou-labs](https://github.com/efokou-labs).
 
